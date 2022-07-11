@@ -9,6 +9,7 @@ import { Store } from './components/Store'
 import { Games } from './components/Games'
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { SideBar } from './components/SideBar'
 
 
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <BrowserRouter className="App">
       <NavbarFb/>
+      <SideBar />
       <Routes>
         
         <Route path="/home" element={<Home/>}></Route>
