@@ -8,7 +8,10 @@ nav {
     float: top; /* Desplazamos el nav hacia la izquierda */
     background-color: #282828;
     display: flex;
-    height: 56px;   
+    height: 56px;
+    position: fixed;
+    width: 100%;   
+    
     /*flex-direction: column;*/
 
     justify-content: space-between;
@@ -26,8 +29,8 @@ nav {
 nav ul {
     
     list-style: none;
-    overflow: hidden; /* Limpiamos errores de float */
-    width: 60%;
+    width: 40%;
+    
     text-align: center;
     
    
@@ -41,9 +44,9 @@ nav ul li {
    
     font-family: Arial, sans-serif;
     font-size: 16px;
-    
+    max-width: 130px;
     height: 55px;
-    width: 13%;
+    width: 20%;
     border-radius: 10px;
     
 }
@@ -92,7 +95,8 @@ nav ul li:hover {
 
 .perfil-nav{
     display: inline-flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
+    width: 350px;
     margin-right: 10px;
 }

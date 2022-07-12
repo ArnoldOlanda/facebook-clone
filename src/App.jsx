@@ -9,24 +9,33 @@ import { Store } from './components/Store'
 import { Games } from './components/Games'
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { RightBar } from './components/RightBar'
+import { Chat } from './components/Chat'
+import { GlobalState } from './components/GlobalState'
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [mostrar, setMostrar] = useState(false)
 
   return (
-    <BrowserRouter className="App">
-      <NavbarFb/>
-      <Routes>
+    <GlobalState.Provider value={{mostrar, setMostrar}}>
+      <BrowserRouter className="App">
         
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/people" element={<People/>}></Route>
-        <Route path="/watch" element={<Watch/>}></Route>
-        <Route path="/store" element={<Store/>}></Route>
-        <Route path="/games" element={<Games/>}></Route>
-      </Routes>
-    </BrowserRouter>
+        <NavbarFb/>
+        <RightBar/>
+        {mostrar?<Chat></Chat>:<></>}
+        
+        <Routes className="wrapper">
+          
+          <Route path="/home" element={<Home/>}></Route>
+          <Route path="/people" element={<People/>}></Route>
+          <Route path="/watch" element={<Watch/>}></Route>
+          <Route path="/store" element={<Store/>}></Route>
+          <Route path="/games" element={<Games/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </GlobalState.Provider>
     
   )
 }
