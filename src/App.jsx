@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import { NavbarFb } from './components/Navbar'
 import { Home } from './components/Home'
@@ -10,6 +9,7 @@ import { Games } from './components/Games'
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { SideBar } from './components/SideBar'
+import { Content } from './components/Content'
 
 
 
@@ -19,7 +19,10 @@ function App() {
   return (
     <BrowserRouter className="App">
       <NavbarFb/>
-      <SideBar />
+      <div style={{ display: 'flex' }}>
+        <SideBar />
+        <Content />
+      </div>
       <Routes>
         
         <Route path="/home" element={<Home/>}></Route>
