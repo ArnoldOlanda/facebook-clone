@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { GlobalState } from './GlobalState'
+import { GlobalContext } from '../context/GlobalContext'
 
 
 const Nombre = (props)=>{
@@ -19,7 +19,7 @@ const Nombre = (props)=>{
 }
 
 export const Chat = (props)=>{
-    const {mostrar, setMostrar} = React.useContext(GlobalState);
+    const {mostrar, onMostrarChange} = useContext(GlobalContext);
 
     return(
         <Container>
@@ -38,14 +38,14 @@ export const Chat = (props)=>{
                         <svg fill="#ffffff4d" width="26px" height="26px" viewBox="-4 -4 24 24"><line x1="2" x2="14" y1="8" y2="8" strokeLinecap="round" strokeWidth="2" stroke="#ffffff4d"></line></svg>
                     </Icon_Top_Bar>
                     
-                    <Icon_Top_Bar onClick={()=>{setMostrar(false)}}>
+                    <Icon_Top_Bar onClick={()=> onMostrarChange( false ) }>
                         <svg  width="24px" height="24px" viewBox="0 0 24 24"><g strokeLinecap="round" strokeWidth="2" stroke="#ffffff4d"><line x1="6" x2="18" y1="6" y2="18"></line><line x1="6" x2="18" y1="18" y2="6"></line></g></svg>
                     </Icon_Top_Bar>
                 </Icons_Top_Bar>
             </Top_Bar>
 
             <Container_Menssage>
-                <label>asdas</label>
+                <label>asdas :v </label>
             </Container_Menssage>
                 
             <Bottom_Bar>

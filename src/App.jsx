@@ -1,8 +1,4 @@
-import { useState } from 'react'
-<<<<<<< HEAD
-=======
-
->>>>>>> c0004c85a6dbc7189857de3b9e4544c61d53e51f
+import { useContext, useState } from 'react'
 import './App.css'
 import { NavbarFb } from './components/Navbar'
 import { Home } from './components/Home'
@@ -11,38 +7,32 @@ import { Watch } from './components/Watch'
 import { Store } from './components/Store'
 import { Games } from './components/Games'
 
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import { RightBar } from './components/RightBar'
 import { Chat } from './components/Chat'
-import { GlobalState } from './components/GlobalState'
 import { SideBar } from './components/SideBar'
 import { Content } from './components/Content'
+import { GlobalContext } from './context/GlobalContext'
 
 
 
 function App() {
-  const [mostrar, setMostrar] = useState(false)
+
+  const {mostrar} = useContext(GlobalContext);
+  // console.log( state );
 
   return (
-    <GlobalState.Provider value={{mostrar, setMostrar}}>
-      <BrowserRouter className="App">
-   
+      <BrowserRouter>
       <NavbarFb/>
-<<<<<<< HEAD
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex',paddingTop:'50px' }}>
         <SideBar />
         <Content />
-      </div>
-=======
-     
         <RightBar/>
-        {mostrar?<Chat></Chat>:<></>}
-        
-      <SideBar />
->>>>>>> c0004c85a6dbc7189857de3b9e4544c61d53e51f
-      <Routes>
-        
-        
+        { mostrar ? <Chat /> : 'no funca'}
+        {/* <Chat /> */}
+      </div>
+   
+      <Routes>      
         
           
           <Route path="/home" element={<Home/>}></Route>
@@ -50,9 +40,9 @@ function App() {
           <Route path="/watch" element={<Watch/>}></Route>
           <Route path="/store" element={<Store/>}></Route>
           <Route path="/games" element={<Games/>}></Route>
+          <Route path="/" element={<Navigate to={'/home'}/>}></Route>
         </Routes>
       </BrowserRouter>
-    </GlobalState.Provider>
     
   )
 }

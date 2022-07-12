@@ -1,13 +1,14 @@
-import React from 'react'
+import { useContext } from 'react'
 import styled from 'styled-components'
-import { GlobalState } from './GlobalState';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const Contacto = ({props}) => {
 
-  const {mostrar, setMostrar} = React.useContext(GlobalState);
+  const { onMostrarChange} = useContext(GlobalContext);
+  
 
   return (
-    <DivCont onClick={() => {setMostrar(true)}}>
+    <DivCont onClick={ ()=> onMostrarChange(true) }>
       <ImgCont/>
       <p style={{ color: 'white',fontFamily: 'Segoe UI Historic', fontsize:'15px'}}>hola</p>
     </DivCont>
