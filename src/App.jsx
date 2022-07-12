@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from './logo.svg'
+
 import './App.css'
 import { NavbarFb } from './components/Navbar'
 import { Home } from './components/Home'
@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { RightBar } from './components/RightBar'
 import { Chat } from './components/Chat'
 import { GlobalState } from './components/GlobalState'
+import { SideBar } from './components/SideBar'
 
 
 
@@ -21,12 +22,17 @@ function App() {
   return (
     <GlobalState.Provider value={{mostrar, setMostrar}}>
       <BrowserRouter className="App">
-        
-        <NavbarFb/>
+   
+      <NavbarFb/>
+     
         <RightBar/>
         {mostrar?<Chat></Chat>:<></>}
         
-        <Routes className="wrapper">
+      <SideBar />
+      <Routes>
+        
+        
+        
           
           <Route path="/home" element={<Home/>}></Route>
           <Route path="/people" element={<People/>}></Route>
